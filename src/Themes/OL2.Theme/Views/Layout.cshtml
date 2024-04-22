@@ -1,0 +1,49 @@
+﻿@*This document is used for every page's layout!*@
+
+<!DOCTYPE html>
+<html lang="@Orchard.CultureName()" dir="@Orchard.CultureDir()">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@RenderTitleSegments(Site.SiteName, "before")</title>
+    <script asp-src="~/OL2.Theme/Scripts/site.js" at="Head"></script>
+    <resources type="Header" />
+    @await RenderSectionAsync("HeadMeta", required: false)
+    
+</head>
+<body>
+    <nav class="navbar navbar-expand-md fixed-top">
+        <div class="container">
+            <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar" aria-expanded="false" aria-controls="navbar" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbar">
+                <div class="d-flex w-100 align-items-end justify-content-end justify-content-md-between flex-column flex-md-row">
+                    <menu alias="alias:main-menu" cache-id="main-menu" cache-fixed-duration="00:05:00" cache-tag="alias:main-menu" />
+
+                </div>
+            </div>
+        </div>
+    </nav>
+    @await RenderSectionAsync("Header", required: false)
+    <main class="container">
+        @await RenderSectionAsync("Messages", required: false)
+        @if (User.Identity.Name is not null)
+        {
+            @T["Hello, You! You, Bastard! {0}!", User.Identity.Name]
+        }
+        <shape Type="fooShape" FooStrParam="dummy sTrInG" fooIntParam=23 fooFloatParam=0.5f fooBoolParam=true />
+        @await DisplayAsync(await New.YetAnotherFooShape(User: User, OtherStuff: "other dummy data"))
+        @await RenderBodyAsync()
+    </main>
+    @if (IsSectionDefined("Footer"))
+    {
+        <footer>
+            <div class="container">
+                @await RenderSectionAsync("Footer", required: false)
+            </div>
+        </footer>
+    }
+    <resources type="FootScript" />
+</body>
+</html>

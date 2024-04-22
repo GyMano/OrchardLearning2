@@ -1,0 +1,17 @@
+﻿@model OrchardCore.Title.ViewModels.TitlePartViewModel
+
+<h1>@Model.Title</h1>
+
+@T["This is our title."]
+
+@if (Model?.TitlePart?.ContentItem?.Content?.HtmlBodyPart?.Html is not null)
+{
+    @Model.TitlePart.ContentItem.Content.HtmlBodyPart.Html;
+}
+else 
+{ 
+    @T["There is no body.html in the titlepart!"]
+}
+
+<style asp-src="~/OL2.Theme/Styles/TitlePart.css"></style>
+<script asp-src="~/OL2.Theme/Scripts/TitlePart.js"></script>
