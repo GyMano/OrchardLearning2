@@ -5,23 +5,20 @@ VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{B5FF93B9-0CDB-4E0C-A688-A1F3A805E741}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OL2.Web", "src\OL2.Web\OL2.Web.csproj", "{DB1529C8-84F8-4664-8BA6-A2B8561D320B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OL2.Web", "src\OL2.Web\OL2.Web.csproj", "{DB1529C8-84F8-4664-8BA6-A2B8561D320B}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Modules", "Modules", "{1A18778E-7CB3-4948-90EE-938172071267}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OL2.Core", "src\Modules\OL2.Core\OL2.Core.csproj", "{3F2DD048-C528-4B67-B379-334D62F78798}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OL2.Core", "src\Modules\OL2.Core\OL2.Core.csproj", "{3F2DD048-C528-4B67-B379-334D62F78798}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Themes", "Themes", "{1988C6E4-FB9D-4934-A037-67C053A64DC7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OL2.Theme", "src\Themes\OL2.Theme\OL2.Theme.csproj", "{DEA8E83E-5B98-4CD8-B170-64A6F10B58CD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OL2.Theme", "src\Themes\OL2.Theme\OL2.Theme.csproj", "{DEA8E83E-5B98-4CD8-B170-64A6F10B58CD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
-	EndGlobalSection
-	GlobalSection(SolutionProperties) = preSolution
-		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{DB1529C8-84F8-4664-8BA6-A2B8561D320B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -36,6 +33,9 @@ Global
 		{DEA8E83E-5B98-4CD8-B170-64A6F10B58CD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DEA8E83E-5B98-4CD8-B170-64A6F10B58CD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DEA8E83E-5B98-4CD8-B170-64A6F10B58CD}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{DB1529C8-84F8-4664-8BA6-A2B8561D320B} = {B5FF93B9-0CDB-4E0C-A688-A1F3A805E741}
