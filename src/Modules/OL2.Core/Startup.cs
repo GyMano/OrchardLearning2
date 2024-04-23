@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Routing;
 using Microsoft.Extensions.DependencyInjection;
 using OL2.Core.Drivers;
+using OL2.Core.Handlers;
 using OL2.Core.Migrations;
 using OL2.Core.Models;
 using OrchardCore.ContentManagement;
@@ -15,8 +16,12 @@ namespace OL2.Core
     {
         public override void ConfigureServices(IServiceCollection services)
         {
-            services.AddContentPart<PersonPart>().UseDisplayDriver<PersonPartDisplayDriver>();
-            services.AddScoped<IDataMigration, PersonMigrations>();
+            
+            services
+                .AddContentPart<PersonPart>()
+                .UseDisplayDriver<PersonPartDisplayDriver>()
+                .AddHandler<PersonPartHandler>();
+            services.AddDataMigration<PersonMigrations>();
 
         }
 

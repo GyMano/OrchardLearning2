@@ -1,4 +1,5 @@
-﻿@model OL2.Core.ViewModels.PersonPartViewModel
+﻿@model PersonPartViewModel
+@using OL2.Core.ViewModels
 
 <div><strong>@Model.Name</strong></div>
 <div>@T["Birth date: {0}", Model.BirthDateUtc?.ToShortDateString()]</div>

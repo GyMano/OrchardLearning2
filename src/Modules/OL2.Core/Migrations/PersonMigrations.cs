@@ -1,6 +1,7 @@
 ﻿using OL2.Core.Models;
 using OrchardCore.ContentFields.Fields;
 using OrchardCore.ContentFields.Settings;
+using OrchardCore.ContentManagement.GraphQL.Queries;
 using OrchardCore.ContentManagement.Metadata;
 using OrchardCore.ContentManagement.Metadata.Settings;
 using OrchardCore.Data.Migration;
@@ -24,15 +25,14 @@ namespace OL2.Core.Migrations
             _contentDefinitionManager.AlterPartDefinitionAsync(nameof(PersonPart), part => part
             .Attachable()
             .WithField(nameof(PersonPart.Biography), field => field
-            .OfType(nameof(TextField))
-            .WithDisplayName("Biography")
-            .WithSettings(new TextFieldSettings()
-            {
-                Hint = "The biography of the person.",
-                Required = false,
-                DefaultValue = ""
-            })
-            .WithEditor("TextArea")
+                .OfType(nameof(TextField))
+                .WithDisplayName("Biography")
+                .WithSettings(new TextFieldSettings()
+                {
+                    Hint = "The biography of the person. test if it updates at all",
+                    Required = false
+                })
+                .WithEditor("TextArea")
             ));
 
             _contentDefinitionManager.AlterTypeDefinitionAsync("PersonPage", type => type
@@ -41,7 +41,22 @@ namespace OL2.Core.Migrations
                 .WithPart(nameof(PersonPart))
             );
 
-            return 1;
+            _contentDefinitionManager.AlterTypeDefinitionAsync("PersonWidget", type => type
+                .WithPart(nameof(PersonPart))
+                .Stereotype("Widget")
+            );
+
+            return 2;
+        }
+
+        public int UpdateFrom1()
+        {
+            _contentDefinitionManager.AlterTypeDefinitionAsync("PersonWidget", type => type
+                .WithPart(nameof(PersonPart))
+                .Stereotype("Widget")
+            );
+
+            return 2;
         }
     }
 }

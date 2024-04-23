@@ -25,7 +25,9 @@ namespace OL2.Core.Drivers
             Initialize<PersonPartViewModel>(
                 GetEditorShapeType(context),
                 viewModel => PopulateViewModel(part, viewModel))
-            .Location("Content:5");
+            .Location("Detail", "Content:5");
+
+
 
         public override async Task<IDisplayResult> UpdateAsync(PersonPart part, IUpdateModel updater, UpdatePartEditorContext context)
         {
@@ -35,20 +37,23 @@ namespace OL2.Core.Drivers
 
             // Populate part from view model here.
 
+            part.BirthDateUtc = viewModel.BirthDateUtc;
             part.Name = viewModel.Name;
             part.Handedness = viewModel.Handedness;
-            part.BirthDateUtc = viewModel.BirthDateUtc;
 
-            return Edit(part, context);
+            return await EditAsync(part, context);
         }
 
         private static void PopulateViewModel(PersonPart part, PersonPartViewModel viewModel)
         {
             // Populate view model from part here.
 
+            
+
+
+            viewModel.BirthDateUtc = part.BirthDateUtc;
             viewModel.Name = part.Name;
             viewModel.Handedness = part.Handedness;
-            viewModel.BirthDateUtc = part.BirthDateUtc;
         }
     }
 }

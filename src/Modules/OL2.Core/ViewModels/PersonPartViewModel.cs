@@ -1,4 +1,5 @@
-﻿using OL2.Core.Models;
+﻿using Microsoft.AspNetCore.Mvc.ModelBinding;
+using OL2.Core.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -8,13 +9,12 @@ using System.Threading.Tasks;
 
 namespace OL2.Core.ViewModels
 {
-    internal class PersonPartViewModel
+    public class PersonPartViewModel
     {
-        [Required]
-        public string Name { get; set; }
-        [Required]
+        public string? Name { get; set; }
         public Handedness Handedness { get; set; }
-        [Required]
         public DateTime? BirthDateUtc { get; set; }
+
+        
     }
 }
